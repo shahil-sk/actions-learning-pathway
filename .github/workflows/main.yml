@@ -1,0 +1,10 @@
+#My First YAML file 
+name: hello-world
+on: push
+jobs:
+  hello-world-jobs:
+  runs-on: Ubuntu-latest
+  steps:
+    - name: Check out this repo
+      uses: actions/checkout@v3
+      run: echo "$(cat hello-world.txt)"
