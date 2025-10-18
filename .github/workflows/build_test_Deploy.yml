@@ -16,3 +16,19 @@ jobs:
         run: |
           npm install 
           npm run build
+  test:
+    needs: build
+    runs-on: Ubuntu-latest
+    steps:
+      - name: Checkout this repo for workflow to access it.
+        uses: actions/checkout@v3
+
+      - name: setup node.js
+        uses: actions/setup-node@v3
+        with:
+          version: 18.x
+
+      - name: Run Test's
+        run: | 
+          npm install
+          npm test
